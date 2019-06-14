@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Cats</string>
+    <string name="exit">Exit</string>
+    <string name="image">Cat image</string>
+    <string name="prev">Prev</string>
+    <string name="next">Next</string>
+    <string name="cat_breed">Text</string>
+</resources>

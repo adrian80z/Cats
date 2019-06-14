@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.adrianziolkowski.cats.MainActivity">
+    <item
+        android:id="@+id/exit"
+        android:icon="@drawable/close1"
+        android:title="@string/exit"
+        app:showAsAction="always" />
+</menu>
