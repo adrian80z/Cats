@@ -1,6 +1,8 @@
 package com.adrianziolkowski.cats;
 
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.View;
@@ -12,12 +14,15 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    //declare variables
     View prev;
     View next;
     TextView text;
     ImageView image;
     int counter = 0;
 
+
+    //array of strings
     String [] cat_breed_text = new String[] {
             "Persian",
             "Siberian",
@@ -29,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
             "American Shorthair"
     };
 
+
+    //array of image index
     int[] cat_breed_image = new int[] {
             R.drawable.persian_cat,
             R.drawable.siberian,
@@ -45,22 +52,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //adding toolbar to the app bar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        //instantiate object with corresponding id resource
         text = findViewById(R.id.cat_name);
         image = findViewById(R.id.img);
 
+
+        //setting the resources
         text.setText(cat_breed_text[counter]);
         image.setImageResource(cat_breed_image[counter]);
 
+
+        //instantiate object with corresponding id resource
         prev = findViewById(R.id.button_prev);
         next = findViewById(R.id.button_next);
+
+        //hide prev button
         prev.setVisibility(View.GONE);
 
     }
 
-
+    //onClick method for object next
     public void next(View view) {
         if(counter < cat_breed_image.length-1) {
             prev.setVisibility(View.VISIBLE);
@@ -75,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    //onClick method for object prev
     public void prev(View view) {
         if(counter > 0) {
             next.setVisibility(View.VISIBLE);
@@ -97,17 +114,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // Handle action bar item clicks here.
         int id = item.getItemId();
 
+        // option closing app
         if (id == R.id.exit) {
             finish();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
